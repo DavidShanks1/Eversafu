@@ -4,9 +4,9 @@ import Card from "../Components/Card/Card";
 function ClaimReward() {
   return (
     <div>
-      <div className="flex mx-2 flex-wrap">
+      <div className="flex flex-col md:flex-wrap md:flex-row">
         {ClaimRewardData.map((data, key) => (
-          <div className="px-2 mb-6 md:w-1/4">
+          <div key={key} className="px-2 mb-6 md:w-1/4">
             <Card value={data} />
           </div>
         ))}
@@ -14,9 +14,9 @@ function ClaimReward() {
       <div className="w-full px-2">
         <div className="bg-[#29292b] rounded-xl shadow-[0_2px_4px_0_#010304] px-5 py-4">
           {ClaimData.map((data, key) => (
-            <div className="flex justify-between mb-4">
+            <div key={key} className="flex justify-between mb-4">
               <p>{data.title}</p>
-              <p className="font-semibold text-base text-white">1234</p>
+              <p className="text-base font-semibold text-white">1234</p>
             </div>
           ))}
         </div>

@@ -9,13 +9,14 @@ import Insurance from "../pages/Insurance";
 import Swap from "../pages/Swap";
 
 function Layout() {
+  const [isOpen, setisOpen] = React.useState(false);
   return (
     <>
-      <Header />
-      <div className="flex h-screen bg-[#202021]">
-        <SideBar />
+      <div className="flex h-screen bg-[#202021] relative">
+        <SideBar isOpen={isOpen} setisOpen={setisOpen} />
         <div className="flex-1 overflow-auto mt-7 ">
-          <div className="lg:max-w-7xl mx-auto my-0">
+          <Header setisOpen={setisOpen} isOpen={isOpen} />
+          <div className="mx-auto my-0 lg:max-w-7xl">
             <Routes>
               <Route excat path="/" element={<Dashboard />} />
               <Route path="/claim-reward" element={<ClaimReward />} />

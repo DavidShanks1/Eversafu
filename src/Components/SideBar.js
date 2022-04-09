@@ -1,15 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BiHome, BiDollarCircle, BiCheckShield } from "react-icons/bi";
 import { ImCalculator } from "react-icons/im";
 import { BsLightningChargeFill } from "react-icons/bs";
-function SideBar() {
+import { CgClose } from "react-icons/cg";
+function SideBar(props) {
+  let location = useLocation();
+
   return (
-    <div className="w-60">
-      <div className="mt-10 mb-12 flex justify-center">
+    <div
+      className={`absolute ${
+        props.isOpen ? "block" : "hidden"
+      } lg:relative bottom-0 top-0 left-0 right-0 w-full z-10 lg:w-60 lg:block bg-[#202021]`}
+    >
+      <div className="mt-5 ml-5 lg:hidden">
+        <CgClose
+          size={30}
+          color={"#9945ff"}
+          onClick={() => props.setisOpen(!props.isOpen)}
+        />
+      </div>
+      <div className="flex justify-center mt-10 mb-12">
         <img
           className="w-auto h-28"
           src={"https://app.eversafu.com/images/icones.png"}
+          alt="logo"
         ></img>
       </div>
       <div>
@@ -17,10 +32,19 @@ function SideBar() {
           {NavData.map((data, key) => (
             <li
               key={key}
-              className="py-2.5 font-semibold text-lg flex items-center justify-center hover:text-violet-700"
+              onClick={() => props.setisOpen(false)}
+              className={`${
+                location.pathname === data.href
+                  ? "text-purple-600"
+                  : "text-white"
+              } py-2.5 font-semibold text-lg flex items-center justify-center hover:text-[#9945ff]`}
             >
               <span className="">{data.icon}</span>
-              <Link className="ml-2.5" to={data.href}>
+              <Link
+                // activeClassName=""
+                className="ml-2.5 "
+                to={data.href}
+              >
                 {data.title}
               </Link>
             </li>

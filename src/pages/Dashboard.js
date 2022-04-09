@@ -4,9 +4,9 @@ import Card from "../Components/Card/Card";
 function Dashboard() {
   return (
     <div className="flex flex-col">
-      <div className="flex mx-2 flex-wrap">
+      <div className="flex flex-wrap mx-2">
         {DashboardData.map((data, key) => (
-          <div className="px-2 mb-6 md:w-1/3">
+          <div key={key} className="w-full px-2 mb-6 sm:w-1/2 md:w-1/3">
             <Card value={data} />
           </div>
         ))}
