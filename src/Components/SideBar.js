@@ -22,8 +22,8 @@ function SideBar(props) {
       </div>
       <div className="flex justify-center mt-10 mb-12">
         <img
-          className="w-auto h-28"
-          src={"https://app.eversafu.com/images/icones.png"}
+          className="w-auto"
+          src={process.env.PUBLIC_URL + "/logo.png"}
           alt="logo"
         ></img>
       </div>
@@ -35,9 +35,9 @@ function SideBar(props) {
               onClick={() => props.setisOpen(false)}
               className={`${
                 location.pathname === data.href
-                  ? "text-purple-600"
+                  ? "text-[#e69c3c]"
                   : "text-white"
-              } py-2.5 font-semibold text-lg flex items-center justify-center hover:text-[#9945ff]`}
+              } py-2.5 font-semibold text-lg flex items-center justify-center hover:text-[#e69c3c]`}
             >
               <span className="">{data.icon}</span>
               <Link
